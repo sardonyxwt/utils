@@ -1,6 +1,6 @@
 {
   "name": "@sardonyxwt/utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utils",
   "keywords": [
     "sclib",
@@ -15,18 +15,19 @@
     "LICENSE",
     "README.md",
     "CHANGELOG.md",
-    "src/"
+    "dist/"
   ],
-  "main": "src/",
-  "typings": "src/",
+  "main": "dist/utils.min.js",
+  "typings": "dist/@types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/sardonyxwt/utils.git"
   },
   "scripts": {
-    "test": "cross-env-shell jest",
+    "build": "cross-env NODE_ENV='production' webpack -p",
+    "test": "cross-env-shell webpack && jest",
     "lint": "tslint -p . -c tslint.json --fix -t verbose",
-    "deploy": "cross-env-shell npm publish --access public"
+    "deploy": "cross-env-shell npm run build && npm publish --access public"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -43,11 +44,14 @@
   "devDependencies": {
     "@types/jest": "^21.1.9",
     "@types/node": "^8.0.47",
+    "clean-webpack-plugin": "0.1.17",
     "cross-env": "5.1.1",
     "jest": "^22.0.4",
     "ts-jest": "^22.0.0",
     "ts-loader": "^3.4.0",
     "tslint": "^5.8.0",
-    "typescript": "^2.6.0"
+    "typescript": "^2.6.0",
+    "webpack": "^3.6.0",
+    "webpack-bundle-analyzer": "^2.9.1"
   }
 }
