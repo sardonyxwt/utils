@@ -1,10 +1,5 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const fs = require('fs');
-
-const entry = {
-  utils: './src/index.ts'
-};
 
 const plugins = [
   new CleanWebpackPlugin('dist'),
@@ -15,15 +10,11 @@ const plugins = [
   })
 ];
 
-fs.readdirSync('./src/util').forEach(file => {
-  entry[file.split('.')[0]] = `./src/util/${file}`;
-});
-
 module.exports = {
-  entry,
+  entry: './src/index.ts',
   devtool: 'source-map',
   output: {
-    filename: "./dist/[name].min.js",
+    filename: "./dist/utils.min.js",
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
