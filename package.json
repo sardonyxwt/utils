@@ -26,7 +26,7 @@
   "scripts": {
     "test": "cross-env-shell jest",
     "lint": "tslint -p . -c tslint.json --fix -t verbose",
-    "deploy": "cross-env-shell npm run build && npm publish --access public"
+    "deploy": "cross-env-shell npm publish --access public"
   },
   "jest": {
     "moduleFileExtensions": [
