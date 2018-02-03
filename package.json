@@ -1,0 +1,53 @@
+{
+  "name": "@sardonyxwt/utils",
+  "version": "1.0.0",
+  "description": "Utils",
+  "keywords": [
+    "sclib",
+    "utils"
+  ],
+  "license": "MIT",
+  "author": "sardonyx.wt@gmail.com",
+  "contributors": [
+    "Kirill Petkov <sardonyx.wt@gmail.com>"
+  ],
+  "files": [
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md",
+    "src/"
+  ],
+  "main": "src/",
+  "typings": "src/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sardonyxwt/utils.git"
+  },
+  "scripts": {
+    "test": "cross-env-shell jest",
+    "lint": "tslint -p . -c tslint.json --fix -t verbose",
+    "deploy": "cross-env-shell npm run build && npm publish --access public"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "mapCoverage": true,
+    "testRegex": "/(test|src)/.*\\.(test|spec)\\.(ts|js)$"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^21.1.9",
+    "@types/node": "^8.0.47",
+    "cross-env": "5.1.1",
+    "jest": "^22.0.4",
+    "ts-jest": "^22.0.0",
+    "ts-loader": "^3.4.0",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.0"
+  }
+}
