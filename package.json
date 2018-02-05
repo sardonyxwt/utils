@@ -1,6 +1,6 @@
 {
   "name": "@sardonyxwt/utils",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Utils",
   "keywords": [
     "sclib",
@@ -15,10 +15,12 @@
     "LICENSE",
     "README.md",
     "CHANGELOG.md",
-    "dist/"
+    "file/",
+    "generator/",
+    "json/",
+    "object/",
+    "synchronized/"
   ],
-  "main": "dist/utils.min.js",
-  "typings": "dist/@types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/sardonyxwt/utils.git"
@@ -44,7 +46,6 @@
   "devDependencies": {
     "@types/jest": "^21.1.9",
     "@types/node": "^8.0.47",
-    "clean-webpack-plugin": "0.1.17",
     "cross-env": "5.1.1",
     "jest": "^22.0.4",
     "ts-jest": "^22.0.0",

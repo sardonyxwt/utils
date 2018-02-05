@@ -1,0 +1,9 @@
+{
+  "name": "@sardonyxwt/utils/file",
+  "version": "1.0.0",
+  "description": "",
+  "main": "file.min.js",
+  "typings": "index.ts",
+  "author": "sardonyx.wt@gmail.com",
+  "license": "MIT"
+}

@@ -1,8 +1,6 @@
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const plugins = [
-  new CleanWebpackPlugin('dist'),
   new BundleAnalyzerPlugin({
     openAnalyzer: false,
     analyzerMode: 'static',
@@ -10,11 +8,15 @@ const plugins = [
   })
 ];
 
+const entry = {};
+['file', 'generator', 'json', 'object', 'synchronized']
+  .forEach(util => entry[util] = `./${util}/index.ts`);
+
 module.exports = {
-  entry: './src/index.ts',
+  entry,
   devtool: 'source-map',
   output: {
-    filename: "./dist/utils.min.js",
+    filename: "./[name]/[name].min.js",
     libraryTarget: 'umd',
     umdNamedDefine: true
   },

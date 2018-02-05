@@ -1,0 +1,9 @@
+{
+  "name": "@sardonyxwt/utils/json",
+  "version": "1.0.0",
+  "description": "",
+  "main": "json.min.js",
+  "typings": "index.ts",
+  "author": "sardonyx.wt@gmail.com",
+  "license": "MIT"
+}

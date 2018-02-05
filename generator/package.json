@@ -1,0 +1,9 @@
+{
+  "name": "@sardonyxwt/utils/generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "generator.min.js",
+  "typings": "index.ts",
+  "author": "sardonyx.wt@gmail.com",
+  "license": "MIT"
+}
