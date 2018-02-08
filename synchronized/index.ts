@@ -5,15 +5,30 @@ export class SynchronizedCache<T> {
   constructor(private action: (key) => Promise<T>) {
   }
 
-  get(id: string): Promise<T> {
-    if (this.cache.has(id)) {
-      return <Promise<T>>this.cache.get(id);
+  get(key: string): Promise<T> {
+    if (this.cache.has(key)) {
+      return <Promise<T>>this.cache.get(key);
     } else {
-      const promise = this.action(id);
-      this.cache.set(id, promise);
+      const promise = this.action(key);
+      this.cache.set(key, promise);
       return promise;
     }
   }
+
+  has(key: string): boolean {
+    return this.cache.has(key);
+  }
+
+  remove(key: string): boolean {
+    const present = this.has(key);
+    if (present) {
+      this.get(key).then(
+        () => this.cache.delete(key)
+      );
+    }
+    return present;
+  }
+
 }
 
 export function createSyncCache<T>(action: (key) => Promise<T>) {
