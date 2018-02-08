@@ -1,29 +1,29 @@
 export class SynchronizedCache<T> {
 
-  private cache: Map<string, Promise<T>> = new Map();
+  private cache: { [key: string]: Promise<T> } = {};
 
   constructor(private action: (key) => Promise<T>) {
   }
 
   get(key: string): Promise<T> {
-    if (this.cache.has(key)) {
-      return <Promise<T>>this.cache.get(key);
+    if (key in this.cache) {
+      return <Promise<T>>this.cache[key];
     } else {
       const promise = this.action(key);
-      this.cache.set(key, promise);
+      this.cache[key] = promise;
       return promise;
     }
   }
 
   has(key: string): boolean {
-    return this.cache.has(key);
+    return key in this.cache;
   }
 
   remove(key: string): boolean {
     const present = this.has(key);
     if (present) {
       this.get(key).then(
-        () => this.cache.delete(key)
+        () => delete this.cache[key]
       );
     }
     return present;
