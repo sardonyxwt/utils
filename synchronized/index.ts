@@ -1,4 +1,10 @@
-export class SynchronizedCache<T> {
+export interface SynchronizedCache<T> {
+  get(key: string): Promise<T>;
+  has(key: string): boolean;
+  remove(key: string);
+}
+
+class SynchronizedCacheImpl<T> implements SynchronizedCache<T> {
 
   private cache: { [key: string]: Promise<T> } = {};
 
@@ -32,23 +38,9 @@ export class SynchronizedCache<T> {
 }
 
 export function createSyncCache<T>(action: (key) => Promise<T>) {
-  return new SynchronizedCache<T>(action);
+  return new SynchronizedCacheImpl<T>(action);
 }
 
 export function syncPromises<T>(promises: (Promise<T> | T)[]): Promise<T[]> {
-  let results: T[] = [];
-  return new Promise<T[]>(((resolve, reject) => {
-    if (promises.length === 0) resolve(results);
-    promises.forEach(promise => {
-      if (promise instanceof Promise) {
-        (promise as Promise<T>).then(result => {
-          results.push(result);
-          if (results.length === promises.length) resolve(results);
-        }).catch((error) => reject(error));
-      } else {
-        results.push(promise);
-        if (results.length === promises.length) resolve(results);
-      }
-    });
-  }));
+  return Promise.all(promises.map(promise => Promise.resolve(promise)));
 }
