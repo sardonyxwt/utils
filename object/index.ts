@@ -59,7 +59,7 @@ export function unflatten(data) {
   return result[''];
 }
 
-function stringifyValue(value): string {
+export function stringifyValue(value): string {
   if (value === undefined || value === null) {
     return '';
   }

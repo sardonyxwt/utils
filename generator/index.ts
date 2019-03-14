@@ -1,16 +1,22 @@
-export type UniqueIdGenerator = () => string;
+export type Generator<T> = (...args) => T;
 
-export function generateSalt(length: number, sample?: string) {
-  const CHARACTERS = sample || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+export const generateSalt: Generator<string> = (
+  length = 16,
+  sample = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+) => {
   let result = '';
   while (result.length < length) {
-    result += CHARACTERS.charAt(Math.floor(Math.random() * CHARACTERS.length))
+    result += sample.charAt(Math.floor(Math.random() * sample.length))
   }
   return result;
-}
+};
 
-export function createUniqueIdGenerator(): UniqueIdGenerator {
-  const salt = generateSalt(32);
+export const generateUUID: Generator<string> = () =>
+  `${generateSalt(4)}-${generateSalt(4)}-${generateSalt(4)}-${generateSalt(4)}`;
+
+export const createUniqueIdGenerator = (prefix: string): Generator<string> => {
   const index = 0;
-  return () => `${salt}:${index}`;
-}
+  const uuid = generateUUID();
+  const uniquePrefix = `${prefix}:${uuid}`;
+  return () => `${uniquePrefix}:${index}`;
+};
