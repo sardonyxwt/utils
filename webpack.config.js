@@ -9,7 +9,7 @@ const plugins = [
 ];
 
 const entry = {};
-['file', 'generator', 'json', 'object', 'synchronized']
+['file', 'generator', 'object', 'synchronized']
   .forEach(util => entry[util] = `./${util}/index.ts`);
 
 module.exports = {

@@ -40,7 +40,3 @@ class SynchronizedCacheImpl<T> implements SynchronizedCache<T> {
 export function createSyncCache<T>(action: (key) => Promise<T>): SynchronizedCache<T> {
   return new SynchronizedCacheImpl<T>(action);
 }
-
-export function syncPromises<T>(promises: (Promise<T> | T)[]): Promise<T[]> {
-  return Promise.all(promises.map(promise => Promise.resolve(promise)));
-}
