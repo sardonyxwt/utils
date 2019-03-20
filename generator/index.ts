@@ -15,8 +15,8 @@ export const generateUUID: Generator<string> = () =>
   `${generateSalt(4)}-${generateSalt(4)}-${generateSalt(4)}-${generateSalt(4)}`;
 
 export const createUniqueIdGenerator = (prefix: string): Generator<string> => {
-  const index = 0;
+  let index = 0;
   const uuid = generateUUID();
   const uniquePrefix = `${prefix}:${uuid}`;
-  return () => `${uniquePrefix}:${index}`;
+  return () => `${uniquePrefix}:${++index}`;
 };
