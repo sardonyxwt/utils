@@ -1,8 +1,8 @@
 {
-  "name": "@sardonyxwt/utils/file",
+  "name": "@sardonyxwt/utils/builder",
   "version": "1.0.0",
   "description": "",
-  "main": "file.min.js",
+  "main": "../dist/builder.min.js",
   "typings": "index.ts",
   "author": "sardonyx.wt@gmail.com",
   "license": "MIT"

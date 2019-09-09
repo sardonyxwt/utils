@@ -1,8 +1,8 @@
 {
-  "name": "@sardonyxwt/utils/synchronizeds",
-  "version": "1.2.2",
+  "name": "@sardonyxwt/utils/converter",
+  "version": "1.0.0",
   "description": "",
-  "main": "synchronized.min.js",
+  "main": "../dist/converter.min.js",
   "typings": "index.ts",
   "author": "sardonyx.wt@gmail.com",
   "license": "MIT"

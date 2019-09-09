@@ -1,8 +1,8 @@
 {
-  "name": "@sardonyxwt/utils/generator",
+  "name": "@sardonyxwt/utils/function",
   "version": "1.0.0",
   "description": "",
-  "main": "../dist/generator.min.js",
+  "main": "../dist/function.min.js",
   "typings": "index.ts",
   "author": "sardonyx.wt@gmail.com",
   "license": "MIT"

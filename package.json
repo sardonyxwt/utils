@@ -1,58 +1,54 @@
 {
-  "name": "@sardonyxwt/utils",
-  "version": "2.1.1",
-  "description": "Utils",
-  "keywords": [
-    "sclib",
-    "utils"
-  ],
-  "license": "MIT",
-  "author": "sardonyx.wt@gmail.com",
-  "contributors": [
-    "Kirill Petkov <sardonyx.wt@gmail.com>"
-  ],
-  "files": [
-    "LICENSE",
-    "README.md",
-    "CHANGELOG.md",
-    "file/",
-    "generator/",
-    "json/",
-    "object/",
-    "synchronized/"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sardonyxwt/utils.git"
-  },
-  "scripts": {
-    "build": "cross-env NODE_ENV='production' webpack -p",
-    "test": "cross-env-shell webpack && jest",
-    "lint": "tslint -p . -c tslint.json --fix -t verbose",
-    "deploy": "cross-env-shell npm run build && npm publish --access public"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "ts",
-      "js"
+    "name": "@sardonyxwt/utils",
+    "version": "3.2.0",
+    "description": "Utils",
+    "keywords": [
+        "sclib",
+        "utils"
     ],
-    "transform": {
-      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    "license": "MIT",
+    "author": "sardonyx.wt@gmail.com",
+    "contributors": [
+        "Kirill Petkov <sardonyx.wt@gmail.com>"
+    ],
+    "files": [
+        "LICENSE",
+        "README.md",
+        "CHANGELOG.md",
+        "generator/",
+        "object/",
+        "converter/",
+        "url/",
+        "function/",
+        "builder/",
+        "mapping/"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/sardonyxwt/utils.git"
     },
-    "mapCoverage": true,
-    "testRegex": "/(test|src)/.*\\.(test|spec)\\.(ts|js)$"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "@types/jest": "^21.1.9",
-    "@types/node": "^8.0.47",
-    "cross-env": "5.1.1",
-    "jest": "^22.0.4",
-    "ts-jest": "^22.0.0",
-    "ts-loader": "^3.4.0",
-    "tslint": "^5.8.0",
-    "typescript": "^2.6.0",
-    "webpack": "^3.6.0",
-    "webpack-bundle-analyzer": "^2.9.1"
-  }
+    "scripts": {
+        "build": "webpack --mode production",
+        "test": "cross-env-shell webpack -p && jest",
+        "lint": "tslint -p . -c tslint.json --fix -t verbose",
+        "deploy": "cross-env-shell npm run build && npm publish --access public"
+    },
+    "dependencies": {
+        "reflect-metadata": "0.1.13"
+    },
+    "devDependencies": {
+        "@types/jest": "24.0.18",
+        "@types/node": "12.7.4",
+        "clean-webpack-plugin": "3.0.0",
+        "cross-env": "5.2.1",
+        "jest": "24.9.0",
+        "jest-html-reporter": "2.6.0",
+        "ts-jest": "24.0.2",
+        "ts-loader": "6.0.4",
+        "tslint": "5.19.0",
+        "typescript": "3.6.2",
+        "webpack": "4.39.3",
+        "webpack-bundle-analyzer": "3.4.1",
+        "webpack-cli": "3.3.8"
+    }
 }
