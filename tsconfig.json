@@ -1,13 +1,16 @@
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "lib": ["es2017", "dom"],
-    "target": "es5",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "sourceMap": true
-  },
-  "exclude": [
-    "node_modules"
-  ]
+    "compileOnSave": false,
+    "compilerOptions": {
+        "lib": ["es2017", "dom"],
+        "target": "es5",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "sourceMap": true,
+        "declaration": true,
+        "declarationMap": true,
+        "declarationDir": "dist/types"
+    },
+    "exclude": [
+        "node_modules"
+    ]
 }

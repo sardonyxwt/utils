@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "../dist/url.min.js",
-  "typings": "index.ts",
+  "typings": "../dist/types/url/index.d.ts",
   "author": "sardonyx.wt@gmail.com",
   "license": "MIT"
 }

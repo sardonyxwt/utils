@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "../dist/converter.min.js",
-  "typings": "index.ts",
+  "typings": "../dist/types/converter/index.d.ts",
   "author": "sardonyx.wt@gmail.com",
   "license": "MIT"
 }
