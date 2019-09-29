@@ -2,7 +2,7 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 
 const entry = {};
-['generator', 'object', 'converter', 'url', 'function', 'builder', 'mapping']
+['generator', 'object', 'converter', 'url', 'function', 'builder', 'mapping', 'dom']
     .forEach(util => entry[util] = `./${util}/index.ts`);
 
 module.exports = {

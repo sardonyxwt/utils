@@ -1,6 +1,6 @@
 {
     "name": "@sardonyxwt/utils",
-    "version": "3.2.1",
+    "version": "3.3.1",
     "description": "Utils",
     "keywords": [
         "sclib",
@@ -22,6 +22,7 @@
         "function/",
         "builder/",
         "mapping/",
+        "dom/",
         "dist/"
     ],
     "repository": {

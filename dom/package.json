@@ -1,0 +1,9 @@
+{
+  "name": "@sardonyxwt/utils/dom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "../dist/dom.min.js",
+  "typings": "../dist/types/dom/index.d.ts",
+  "author": "sardonyx.wt@gmail.com",
+  "license": "MIT"
+}
