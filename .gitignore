@@ -3,9 +3,9 @@
 .idea/
 **/*.iml
 
+**/.size-snapshot.json
 **/npm-debug.log
-**/test-report.json
-**/bundle-report.html
+**/report/
 **/etc/
 **/node/
 **/node_modules/

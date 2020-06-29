@@ -1,4 +1,4 @@
-export type Generator<T> = (...args) => T;
+export type Generator<T> = (...args: any[]) => T;
 
 export const generateSalt: Generator<string> = (
     length = 16,

@@ -1,4 +1,4 @@
-export function deepFreeze<T>(obj: T) {
+export function deepFreeze<T extends Record<string, any>>(obj: T) {
   Object.getOwnPropertyNames(obj).forEach(function (key) {
     let prop = obj[key];
     if (typeof prop === 'object' && prop !== null) {
@@ -8,58 +8,7 @@ export function deepFreeze<T>(obj: T) {
   return Object.freeze(obj);
 }
 
-export function flatten(data) {
-  const result = {};
-
-  function recurse(current, prop) {
-    if (Object(current) !== current) {
-      result[prop] = current;
-    } else if (Array.isArray(current)) {
-      if (current.length === 0) {
-        result[prop] = [];
-      } else {
-        for (let i = 0; i < current.length; i++) {
-          recurse(current[i], prop ? prop + '.' + i : '' + i);
-        }
-      }
-    } else {
-      const propNames = Object.getOwnPropertyNames(current);
-      if (propNames.length !== 0) {
-        propNames.forEach(
-          p => recurse(current[p], prop ? prop + '.' + p : p)
-        );
-      } else {
-        result[prop] = {};
-      }
-    }
-  }
-
-  recurse(data, '');
-  return result;
-}
-
-export function unflatten(data) {
-  if (Object(data) !== data || Array.isArray(data)) {
-    return data;
-  }
-  let result = {}, current, prop, parts, idx;
-  Object.getOwnPropertyNames(data).forEach(
-    dataProp => {
-      current = result;
-      prop = '';
-      parts = dataProp.split('.');
-      for (let i = 0; i < parts.length; i++) {
-        idx = !isNaN(parseInt(parts[i], 10));
-        current = current[prop] || (current[prop] = (idx ? [] : {}));
-        prop = parts[i];
-      }
-      current[prop] = data[dataProp];
-    }
-  );
-  return result[''];
-}
-
-export function stringifyValue(value): string {
+export function stringifyValue(value: any): string {
   if (value === undefined || value === null) {
     return '';
   }
@@ -72,9 +21,9 @@ export function stringifyValue(value): string {
   return value;
 }
 
-export const resolveValue = (object, path: string) => {
+export const resolveValue = (object: Record<string, any>, path: string) => {
     const pathParts = path.split(/[.\[\]]/).filter(it => it !== '');
-    let result = object;
+    let result: any = object;
     for (let i = 0; i < pathParts.length; i++) {
         if (!result || typeof result !== 'object') {
             result = undefined;
@@ -92,7 +41,7 @@ export const clone = <T>(source: T): T => {
 export const cloneArray = <T>(sources: T[]): T[] => sources.map(clone);
 
 export const cloneArrays = <T>(...sourceArrays: (T[])[]): T[] => {
-    const result = [];
+    const result: T[] = [];
     sourceArrays.forEach(sourceArray =>
         sourceArray.forEach(source => result.push(clone(source))));
     return result;
@@ -101,7 +50,7 @@ export const cloneArrays = <T>(...sourceArrays: (T[])[]): T[] => {
 export const copyArray = <T>(sources: T[]): T[] => [...sources];
 
 export const copyArrays = <T>(...sourceArrays: (T[])[]): T[] => {
-    const result = [];
+    const result: T[] = [];
     sourceArrays.forEach(sourceArray => result.push(...sourceArray));
     return result;
 };

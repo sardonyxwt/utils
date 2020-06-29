@@ -1,9 +1,10 @@
 {
     "name": "@sardonyxwt/utils",
-    "version": "3.4.0",
+    "version": "3.4.5",
     "description": "Utils",
-    "main": "./dist/utils.min.js",
-    "types": "./dist/types/index.d.ts",
+    "main": "lib/utils.cjs.js",
+    "module": "lib/utils.esm.js",
+    "types": "lib/types",
     "keywords": [
         "sclib",
         "utils"
@@ -17,31 +18,31 @@
         "LICENSE",
         "README.md",
         "CHANGELOG.md",
-        "dist/"
+        "lib/"
     ],
     "repository": {
         "type": "git",
         "url": "https://github.com/sardonyxwt/utils.git"
     },
     "scripts": {
-        "build": "webpack --mode production",
-        "test": "cross-env-shell webpack -p && jest",
-        "lint": "tslint -p . -c tslint.json --fix -t verbose",
-        "deploy": "cross-env-shell npm run build && npm publish --access public"
+        "build": "rollup -c rollup.config.ts",
+        "test": "jest",
+        "deploy": "npm run build && npm publish --access public"
     },
     "devDependencies": {
+        "@rollup/plugin-commonjs": "13.0.0",
+        "@rollup/plugin-node-resolve": "8.1.0",
         "@types/jest": "26.0.3",
         "@types/node": "14.0.14",
-        "clean-webpack-plugin": "3.0.0",
-        "cross-env": "7.0.2",
+        "@types/rollup-plugin-visualizer": "2.6.0",
         "jest": "26.1.0",
         "jest-html-reporter": "3.1.3",
+        "rollup": "2.18.1",
+        "rollup-plugin-cleaner": "^1.0.0",
+        "rollup-plugin-size-snapshot": "0.12.0",
+        "rollup-plugin-typescript2": "0.27.1",
+        "rollup-plugin-visualizer": "4.0.4",
         "ts-jest": "26.1.1",
-        "ts-loader": "7.0.5",
-        "tslint": "6.1.2",
-        "typescript": "3.9.5",
-        "webpack": "4.43.0",
-        "webpack-bundle-analyzer": "3.8.0",
-        "webpack-cli": "3.3.12"
+        "typescript": "3.9.5"
     }
 }

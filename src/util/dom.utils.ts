@@ -1,4 +1,4 @@
-export function preloadImageSource(source) {
+export function preloadImageSource(source: string) {
     return new Promise((resolve, reject) => {
         const image = new Image();
         image.src = source;

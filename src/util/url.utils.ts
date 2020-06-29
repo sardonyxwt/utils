@@ -3,7 +3,7 @@ export type UrlOptions = {
     pathParams?: { [key: string]: string | number };
 }
 
-export function buildUrl(endpoint: string, options?: UrlOptions): string {
+export function buildUrl(endpoint: string, options: UrlOptions = {}): string {
     let url = endpoint;
     const {queryParams, pathParams} = options;
     if (pathParams) { // todo update logic and add exception

@@ -1,16 +1,10 @@
 {
-    "compileOnSave": false,
     "compilerOptions": {
-        "lib": ["es2017", "dom"],
-        "target": "es5",
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "sourceMap": true,
+        "target": "ESNext",
         "declaration": true,
-        "declarationMap": true,
-        "declarationDir": "dist/types"
-    },
-    "exclude": [
-        "node_modules"
-    ]
+        "declarationDir": "lib/types",
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "moduleResolution": "Node"
+    }
 }
