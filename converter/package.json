@@ -1,9 +1,0 @@
-{
-  "name": "@sardonyxwt/utils/converter",
-  "version": "1.0.0",
-  "description": "",
-  "main": "../dist/converter.min.js",
-  "typings": "../dist/types/converter/index.d.ts",
-  "author": "sardonyx.wt@gmail.com",
-  "license": "MIT"
-}

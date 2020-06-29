@@ -1,9 +1,0 @@
-{
-  "name": "@sardonyxwt/utils/mapping",
-  "version": "1.0.0",
-  "description": "",
-  "main": "../dist/mapping.min.js",
-  "typings": "../dist/types/mapping/index.d.ts",
-  "author": "sardonyx.wt@gmail.com",
-  "license": "MIT"
-}

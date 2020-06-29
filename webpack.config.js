@@ -1,14 +1,10 @@
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 
-const entry = {};
-['generator', 'object', 'converter', 'url', 'function', 'builder', 'mapping', 'dom']
-    .forEach(util => entry[util] = `./${util}/index.ts`);
-
 module.exports = {
-    entry: entry,
+    entry: './src/index.ts',
     output: {
-        filename: `./[name].min.js`,
+        filename: `./utils.min.js`,
         libraryTarget: 'umd',
         umdNamedDefine: true
     },
@@ -32,8 +28,5 @@ module.exports = {
             analyzerMode: 'static',
             reportFilename: `${__dirname}/report/bundle-report.html`
         })
-    ],
-    externals: {
-        'reflect-metadata': 'reflect-metadata'
-    },
+    ]
 };

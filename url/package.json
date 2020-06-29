@@ -1,9 +1,0 @@
-{
-  "name": "@sardonyxwt/utils/url",
-  "version": "1.0.0",
-  "description": "",
-  "main": "../dist/url.min.js",
-  "typings": "../dist/types/url/index.d.ts",
-  "author": "sardonyx.wt@gmail.com",
-  "license": "MIT"
-}
