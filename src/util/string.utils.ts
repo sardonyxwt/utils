@@ -1,1 +1,2 @@
-export const charFromHexCode = (hexCode: string) => String.fromCharCode(parseInt(hexCode, 16));
+export const charFromHexCode = (hexCode: string): string =>
+    String.fromCharCode(parseInt(hexCode, 16));
