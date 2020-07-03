@@ -1,6 +1,6 @@
 {
     "name": "@sardonyxwt/utils",
-    "version": "3.4.7",
+    "version": "3.4.8",
     "description": "Utils",
     "main": "lib/utils.cjs.js",
     "module": "lib/utils.esm.js",
