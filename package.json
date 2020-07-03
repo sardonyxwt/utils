@@ -1,6 +1,6 @@
 {
     "name": "@sardonyxwt/utils",
-    "version": "3.4.8",
+    "version": "3.5.0",
     "description": "Utils",
     "main": "lib/utils.cjs.js",
     "module": "lib/utils.esm.js",
@@ -50,6 +50,7 @@
         "prettier": "2.0.5",
         "rollup": "2.18.2",
         "rollup-plugin-cleaner": "1.0.0",
+        "rollup-plugin-terser": "6.1.0",
         "rollup-plugin-ts-paths": "1.0.5",
         "rollup-plugin-typescript2": "0.27.1",
         "rollup-plugin-visualizer": "4.0.4",

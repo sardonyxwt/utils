@@ -2,6 +2,7 @@ import pkg from './package.json';
 import typescript from 'rollup-plugin-typescript2';
 import visualizer from 'rollup-plugin-visualizer';
 import cleaner from 'rollup-plugin-cleaner';
+import { terser } from 'rollup-plugin-terser';
 
 export default {
     input: 'src/index.ts',
@@ -21,6 +22,11 @@ export default {
             tsconfig: 'tsconfig.rollup.json',
             typescript: require('ttypescript'),
             useTsconfigDeclarationDir: true,
+        }),
+        terser({
+            output: {
+                comments: false,
+            },
         }),
         cleaner({
             targets: ['./lib/'],
