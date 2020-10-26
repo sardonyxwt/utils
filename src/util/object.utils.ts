@@ -23,7 +23,10 @@ export function stringifyValue(value: never): string {
     return value;
 }
 
-export const resolveValue = (object: Record<string, never>, path: string) => {
+export const resolveValue = <T>(
+    object: Record<string, never>,
+    path: string,
+): T => {
     const pathParts = path.split(/[.\[\]]/).filter((it) => it !== '');
     let result = object;
     for (let i = 0; i < pathParts.length; i++) {
@@ -33,7 +36,7 @@ export const resolveValue = (object: Record<string, never>, path: string) => {
         }
         result = result[pathParts[i]];
     }
-    return result;
+    return result as T;
 };
 
 export const clone = <T>(source: T): T => {

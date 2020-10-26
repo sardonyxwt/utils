@@ -7,10 +7,10 @@ export function buildUrl(endpoint: string, options: UrlOptions = {}): string {
     let url = endpoint;
     const { queryParams, pathParams } = options;
     if (pathParams) {
-        // todo update logic and add exception
+        // TODO update logic and add exception
         Object.getOwnPropertyNames(pathParams).forEach((key) => {
             url = url.replace(
-                new RegExp(`({${key}})|(:${key})`, 'g'),
+                new RegExp(`({${key}})|(:${key}\?)|(:${key})`, 'g'),
                 `${pathParams[key]}`,
             );
         });
